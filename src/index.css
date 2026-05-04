@@ -287,3 +287,11 @@ select {
 .dark .form label {
   color: #d1d5db;
 }
+.movie-card h3 {
+  cursor: pointer;
+  color: #2563eb;
+}
+
+.movie-card h3:hover {
+  text-decoration: underline;
+}

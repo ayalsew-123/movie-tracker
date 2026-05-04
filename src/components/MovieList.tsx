@@ -164,7 +164,16 @@ function MovieList({ userId }: { userId: string }) {
         <div className="movie-grid">
           {filteredMovies.map((movie) => (
             <div key={movie.id} className="movie-card">
-              <h3>{movie.title}</h3>
+              <h3
+  style={{ cursor: "pointer", color: "#2563eb" }}
+  onClick={() =>
+    alert(
+      `${movie.title}\n\nDirector: ${movie.director}\nGenre: ${movie.genre}\nYear: ${movie.year}\nRuntime: ${movie.runtime} min\nRating: ${movie.rating}\n\n${movie.description}`
+    )
+  }
+>
+  {movie.title}
+</h3>
               <p><strong>Director:</strong> {movie.director}</p>
               <p><strong>Genre:</strong> {movie.genre}</p>
               <p><strong>Year:</strong> {movie.year}</p>
