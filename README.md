@@ -1,34 +1,52 @@
-# Movie Tracker Application
- Student Information
-IT-431-DL1
-Project Two: Movie Tracker Application
-Date: 05/04/2026
- Project Links
-- GitHub: https://github.com/ayalsew-123/movie-tracker  
-- Live App: https://movie-tracker-virid-eight.vercel.app/  
+# 🎬 Movie Tracker Application
 
- Overview
-The Movie Tracker Application is a full-stack web app that allows users to manage and explore a collection of movies. Users can search, filter, and sort movies. Authenticated users can add, edit, and delete movies.
+## 👤 Student Information
+**Course:** IT-431-DL1  
+**Project:** Project Two  
+**Student:** Ayalsew Melesse  
+**Professor:** Michak  
+**Date:** 05/04/2026  
 
- Features
+---
+
+## 🔗 Project Links
+- **GitHub:** https://github.com/ayalsew-123/movie-tracker  
+- **Live App:** https://movie-tracker-virid-eight.vercel.app/  
+
+---
+
+## 📌 Overview
+The Movie Tracker Application is a full-stack web application that allows users to manage and explore a collection of movies. Users can search, filter, and sort movies. Authenticated users can add, edit, and delete movies.
+
+---
+
+## 🚀 Features
 - Search movies by title  
-- Filter by genre  
+- Filter movies by genre  
 - Sort by rating, year, or title  
-- Add / Edit / Delete movies  
-- Light & Dark mode  
+- Add new movies (authenticated users)  
+- Edit movie details  
+- Delete movies  
+- Light and dark mode toggle  
 - Responsive design  
 
- Technologies
-- Frontend: React, TypeScript, Vite  
-- Backend: Supabase  
-- Deployment: Vercel  
+---
 
- Authentication & Security
+## 🛠 Technologies Used
+- **Frontend:** React, TypeScript, CSS, Vite  
+- **Backend:** Supabase  
+- **Deployment:** Vercel  
+
+---
+
+## 🔐 Authentication & Security
 - Supabase Authentication  
 - Row Level Security (RLS)  
-- Only owners can edit/delete their movies  
+- Users can only edit/delete their own movies  
 
- Database
+---
+
+## 🗄 Database Structure
 Table: `movies`
 
 Fields:
@@ -40,8 +58,13 @@ Fields:
 - runtime  
 - rating  
 - description  
- Testing
-Tested by adding and deleting movies (including Michael Jackson-related entries) to verify CRUD functionality.
 
-Conclusion
-This project demonstrates a complete full-stack application using modern technologies. It includes authentication, database management, and a responsive UI.
+---
+
+## 🧪 Testing
+Tested by adding and deleting movies (including Michael Jackson-related entries) to confirm full CRUD functionality.
+
+---
+
+## ✅ Conclusion
+This project demonstrates a complete full-stack application using modern technologies. It integrates frontend, backend, authentication, and deployment into one system with a clean and responsive UI.
