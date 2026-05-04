@@ -379,3 +379,67 @@ button:disabled {
   align-items: center;
   gap: 0.5rem;
 }
+.card ul {
+  padding-left: 1.2rem;
+}
+
+
+
+
+/* Logo */
+.logo {
+  color: #60a5fa;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.logo:hover {
+  color: #93c5fd;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-left: 6px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav button.active {
+  background-color: #1d4ed8;
+}
+
+.card ul {
+  margin-top: 1rem;
+  line-height: 1.8;
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+.home-actions {
+  margin-top: 1.5rem;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+}
