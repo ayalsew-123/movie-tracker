@@ -175,7 +175,7 @@ function MovieList({ userId }: { userId: string }) {
               <p><strong>Rating:</strong> ⭐ {movie.rating}</p>
               <p><strong>Description:</strong> {movie.description}</p>
 
-              {isLoggedIn && movie.id === userId && (
+              {isLoggedIn && movie.id === Number(userId) && (
                 <div>
                   <button className="edit-btn" onClick={() => handleUpdate(movie)}>
                     Edit
