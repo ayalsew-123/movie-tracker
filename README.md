@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Movie Tracker Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Student Information
+**Course:** IT-431-DL1  
+**Professor:** Michak  
+**Student:** Ayalsew Melesse  
+**Date:** 05/04/2026  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Project Links
+- GitHub: https://github.com/ayalsew-123/movie-tracker  
+- Live App: https://movie-tracker-virid-eight.vercel.app/  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Overview
+The Movie Tracker Application is a full-stack web app that allows users to manage and explore a collection of movies. Users can search, filter, and sort movies. Authenticated users can add, edit, and delete movies.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
+- Search movies by title  
+- Filter by genre  
+- Sort by rating, year, or title  
+- Add / Edit / Delete movies  
+- Light & Dark mode  
+- Responsive design  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Technologies
+- Frontend: React, TypeScript, Vite  
+- Backend: Supabase  
+- Deployment: Vercel  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔐 Authentication & Security
+- Supabase Authentication  
+- Row Level Security (RLS)  
+- Only owners can edit/delete their movies  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🗄 Database
+Table: `movies`
+
+Fields:
+- id  
+- title  
+- director  
+- genre  
+- year  
+- runtime  
+- rating  
+- description  
+
+---
+
+## 🧪 Testing
+Tested by adding and deleting movies (including Michael Jackson-related entries) to verify CRUD functionality.
+
+---
+
+## 📸 Screenshots
+(Add your screenshots here in the PDF, not required in GitHub)
+
+---
+
+## ✅ Conclusion
+This project demonstrates a complete full-stack application using modern technologies. It includes authentication, database management, and a responsive UI.
