@@ -47,7 +47,7 @@ Fields:
 - rating  
 - description  
 
----
+
 
 ##  Testing
 Tested by adding and deleting movies (including Michael Jackson-related entries) to confirm full CRUD functionality.
