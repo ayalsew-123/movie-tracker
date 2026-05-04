@@ -20,6 +20,7 @@ function MovieList({ userId }: { userId: string }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [genreFilter, setGenreFilter] = useState("All");
   const [sortBy, setSortBy] = useState("newest");
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   const isLoggedIn = userId !== "";
 
@@ -164,16 +165,8 @@ function MovieList({ userId }: { userId: string }) {
         <div className="movie-grid">
           {filteredMovies.map((movie) => (
             <div key={movie.id} className="movie-card">
-              <h3
-  style={{ cursor: "pointer", color: "#2563eb" }}
-  onClick={() =>
-    alert(
-      `${movie.title}\n\nDirector: ${movie.director}\nGenre: ${movie.genre}\nYear: ${movie.year}\nRuntime: ${movie.runtime} min\nRating: ${movie.rating}\n\n${movie.description}`
-    )
-  }
->
-  {movie.title}
-</h3>
+              <h3 onClick={() => setSelectedMovie(movie)}>{movie.title}</h3>
+
               <p><strong>Director:</strong> {movie.director}</p>
               <p><strong>Genre:</strong> {movie.genre}</p>
               <p><strong>Year:</strong> {movie.year}</p>
@@ -193,6 +186,22 @@ function MovieList({ userId }: { userId: string }) {
               )}
             </div>
           ))}
+        </div>
+      )}
+
+      {selectedMovie && (
+        <div className="modal-overlay" onClick={() => setSelectedMovie(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <h2>{selectedMovie.title}</h2>
+            <p><strong>Director:</strong> {selectedMovie.director}</p>
+            <p><strong>Genre:</strong> {selectedMovie.genre}</p>
+            <p><strong>Year:</strong> {selectedMovie.year}</p>
+            <p><strong>Runtime:</strong> {selectedMovie.runtime} min</p>
+            <p><strong>Rating:</strong> ⭐ {selectedMovie.rating}</p>
+            <p><strong>Description:</strong> {selectedMovie.description}</p>
+
+            <button onClick={() => setSelectedMovie(null)}>Close</button>
+          </div>
         </div>
       )}
     </section>
