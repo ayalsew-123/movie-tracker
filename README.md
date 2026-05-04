@@ -2,7 +2,9 @@
 
 ## 👤 Student Information
 **Course:** IT-431-DL1  
+
 **Project:** Project Two: Movie Tracker Application
+
 **Professor:** Randy Michak
 **Student:** Ayalsew Melesse   
 **Date:** 05/04/2026  
