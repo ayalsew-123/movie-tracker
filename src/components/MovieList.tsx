@@ -101,11 +101,12 @@ function MovieList({ userId }: { userId: string }) {
   const handleDelete = async (id: number) => {
     if (!userId) return;
 
-    const confirmed = window.confirm("Are you sure you want to delete this movie?");
+    const confirmed = window.confirm("Are you sure you want to delete this movie? " + id);
     if (!confirmed) return;
 
     const { error } = await supabase.from("movies").delete().eq("id", id);
-
+    console.log(error);
+    console.log("movie id " + id);
     if (error) {
       setErrorMessage(error.message);
       return;
@@ -174,7 +175,7 @@ function MovieList({ userId }: { userId: string }) {
               <p><strong>Rating:</strong> ⭐ {movie.rating}</p>
               <p><strong>Description:</strong> {movie.description}</p>
 
-              {isLoggedIn && (
+              {isLoggedIn && movie.id === userId && (
                 <div>
                   <button className="edit-btn" onClick={() => handleUpdate(movie)}>
                     Edit
