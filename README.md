@@ -1,6 +1,6 @@
 # 🎬 Movie Tracker Application
 
-## 👤 Student Information
+## Course Information
 **Course:** IT-431-DL1  
 **Project:** Project Two: Movie Tracker Application
 
