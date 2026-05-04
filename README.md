@@ -3,6 +3,7 @@
 ## 👤 Student Information
 **Course:** IT-431-DL1  
 **Project:** Project Two: Movie Tracker Application
+
 **Date:** 05/04/2026  
 
 ##  Project Links
