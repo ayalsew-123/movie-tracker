@@ -1,25 +1,16 @@
 # Movie Tracker Application
-
-## Student Information
-**Course:** IT-431-DL1  
-**Professor:** Michak  
-**Student:** Ayalsew Melesse  
-**Date:** 05/04/2026  
-
----
-
-## 🔗 Project Links
+ Student Information
+IT-431-DL1
+Project Two: Movie Tracker Application
+Date: 05/04/2026
+ Project Links
 - GitHub: https://github.com/ayalsew-123/movie-tracker  
 - Live App: https://movie-tracker-virid-eight.vercel.app/  
 
----
-
-## 📌 Overview
+ Overview
 The Movie Tracker Application is a full-stack web app that allows users to manage and explore a collection of movies. Users can search, filter, and sort movies. Authenticated users can add, edit, and delete movies.
 
----
-
-## 🚀 Features
+ Features
 - Search movies by title  
 - Filter by genre  
 - Sort by rating, year, or title  
@@ -27,23 +18,17 @@ The Movie Tracker Application is a full-stack web app that allows users to manag
 - Light & Dark mode  
 - Responsive design  
 
----
-
-## 🛠 Technologies
+ Technologies
 - Frontend: React, TypeScript, Vite  
 - Backend: Supabase  
 - Deployment: Vercel  
 
----
-
-## 🔐 Authentication & Security
+ Authentication & Security
 - Supabase Authentication  
 - Row Level Security (RLS)  
 - Only owners can edit/delete their movies  
 
----
-
-## 🗄 Database
+ Database
 Table: `movies`
 
 Fields:
@@ -55,18 +40,8 @@ Fields:
 - runtime  
 - rating  
 - description  
-
----
-
-## 🧪 Testing
+ Testing
 Tested by adding and deleting movies (including Michael Jackson-related entries) to verify CRUD functionality.
 
----
-
-## 📸 Screenshots
-(Add your screenshots here in the PDF, not required in GitHub)
-
----
-
-## ✅ Conclusion
+Conclusion
 This project demonstrates a complete full-stack application using modern technologies. It includes authentication, database management, and a responsive UI.
