@@ -11,6 +11,7 @@ type Movie = {
   runtime: number;
   rating: number;
   description: string;
+  user_id: string | null;
 };
 
 function MovieList({ userId }: { userId: string }) {
@@ -48,7 +49,10 @@ function MovieList({ userId }: { userId: string }) {
   }, [loadMovies]);
 
   const genres = useMemo(() => {
-    return ["All", ...new Set(movies.map((movie) => movie.genre).filter(Boolean))];
+    return [
+      "All",
+      ...new Set(movies.map((movie) => movie.genre).filter(Boolean)),
+    ];
   }, [movies]);
 
   const filteredMovies = useMemo(() => {
@@ -80,7 +84,7 @@ function MovieList({ userId }: { userId: string }) {
   }, [movies, searchTerm, genreFilter, sortBy]);
 
   const handleUpdate = async (movie: Movie) => {
-    if (!userId) return;
+    if (!userId || movie.user_id !== userId) return;
 
     const newTitle = prompt("Enter new title:", movie.title);
     if (!newTitle) return;
@@ -88,7 +92,8 @@ function MovieList({ userId }: { userId: string }) {
     const { error } = await supabase
       .from("movies")
       .update({ title: newTitle })
-      .eq("id", movie.id);
+      .eq("id", movie.id)
+      .eq("user_id", userId);
 
     if (error) {
       setErrorMessage(error.message);
@@ -98,15 +103,20 @@ function MovieList({ userId }: { userId: string }) {
     await loadMovies();
   };
 
-  const handleDelete = async (id: number) => {
-    if (!userId) return;
+  const handleDelete = async (movie: Movie) => {
+    if (!userId || movie.user_id !== userId) return;
 
-    const confirmed = window.confirm("Are you sure you want to delete this movie? " + id);
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this movie?"
+    );
     if (!confirmed) return;
 
-    const { error } = await supabase.from("movies").delete().eq("id", id);
-    console.log(error);
-    console.log("movie id " + id);
+    const { error } = await supabase
+      .from("movies")
+      .delete()
+      .eq("id", movie.id)
+      .eq("user_id", userId);
+
     if (error) {
       setErrorMessage(error.message);
       return;
@@ -144,7 +154,10 @@ function MovieList({ userId }: { userId: string }) {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <select value={genreFilter} onChange={(e) => setGenreFilter(e.target.value)}>
+        <select
+          value={genreFilter}
+          onChange={(e) => setGenreFilter(e.target.value)}
+        >
           {genres.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
@@ -168,19 +181,37 @@ function MovieList({ userId }: { userId: string }) {
             <div key={movie.id} className="movie-card">
               <h3 onClick={() => setSelectedMovie(movie)}>{movie.title}</h3>
 
-              <p><strong>Director:</strong> {movie.director}</p>
-              <p><strong>Genre:</strong> {movie.genre}</p>
-              <p><strong>Year:</strong> {movie.year}</p>
-              <p><strong>Runtime:</strong> {movie.runtime} min</p>
-              <p><strong>Rating:</strong> ⭐ {movie.rating}</p>
-              <p><strong>Description:</strong> {movie.description}</p>
+              <p>
+                <strong>Director:</strong> {movie.director}
+              </p>
+              <p>
+                <strong>Genre:</strong> {movie.genre}
+              </p>
+              <p>
+                <strong>Year:</strong> {movie.year}
+              </p>
+              <p>
+                <strong>Runtime:</strong> {movie.runtime} min
+              </p>
+              <p>
+                <strong>Rating:</strong> ⭐ {movie.rating}
+              </p>
+              <p>
+                <strong>Description:</strong> {movie.description}
+              </p>
 
-              {isLoggedIn && movie.id === Number(userId) && (
+              {isLoggedIn && movie.user_id === userId && (
                 <div>
-                  <button className="edit-btn" onClick={() => handleUpdate(movie)}>
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleUpdate(movie)}
+                  >
                     Edit
                   </button>
-                  <button className="delete-btn" onClick={() => handleDelete(movie.id)}>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(movie)}
+                  >
                     Delete
                   </button>
                 </div>
@@ -194,12 +225,24 @@ function MovieList({ userId }: { userId: string }) {
         <div className="modal-overlay" onClick={() => setSelectedMovie(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <h2>{selectedMovie.title}</h2>
-            <p><strong>Director:</strong> {selectedMovie.director}</p>
-            <p><strong>Genre:</strong> {selectedMovie.genre}</p>
-            <p><strong>Year:</strong> {selectedMovie.year}</p>
-            <p><strong>Runtime:</strong> {selectedMovie.runtime} min</p>
-            <p><strong>Rating:</strong> ⭐ {selectedMovie.rating}</p>
-            <p><strong>Description:</strong> {selectedMovie.description}</p>
+            <p>
+              <strong>Director:</strong> {selectedMovie.director}
+            </p>
+            <p>
+              <strong>Genre:</strong> {selectedMovie.genre}
+            </p>
+            <p>
+              <strong>Year:</strong> {selectedMovie.year}
+            </p>
+            <p>
+              <strong>Runtime:</strong> {selectedMovie.runtime} min
+            </p>
+            <p>
+              <strong>Rating:</strong> ⭐ {selectedMovie.rating}
+            </p>
+            <p>
+              <strong>Description:</strong> {selectedMovie.description}
+            </p>
 
             <button onClick={() => setSelectedMovie(null)}>Close</button>
           </div>
