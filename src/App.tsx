@@ -10,7 +10,6 @@ function App() {
   const [view, setView] = useState<"home" | "signin" | "signup" | "movies">(
     "home"
   );
-  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const getSession = async () => {
@@ -32,15 +31,15 @@ function App() {
   }, []);
 
   return (
-    <div className={darkMode ? "dark" : ""}>
-      {/* NAVBAR */}
+    <>
       <nav>
-        <div>
+        <div className="nav-left">
+          <h1 className="logo" onClick={() => setView("home")}>
+            🎬 MovieTracker
+          </h1>
+
           <button onClick={() => setView("home")}>Home</button>
           <button onClick={() => setView("movies")}>Movies</button>
-          <button onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? "☀ Light" : "🌙 Dark"}
-          </button>
         </div>
 
         <div>
@@ -65,7 +64,6 @@ function App() {
         </div>
       </nav>
 
-      {/* HOME */}
       {view === "home" && (
         <div className="card">
           <h2>🎬 Movie Tracker</h2>
@@ -76,7 +74,6 @@ function App() {
             <li>🔍 Search movies by title</li>
             <li>🎬 Filter by genre</li>
             <li>⭐ Sort by rating and year</li>
-            <li>🌙 Switch between light and dark mode</li>
             <li>🔐 Sign in to add, edit, and delete movies</li>
           </ul>
 
@@ -88,17 +85,14 @@ function App() {
         </div>
       )}
 
-      {/* SIGN IN */}
       {view === "signin" && (
         <SignIn onSignInSuccess={() => setView("movies")} />
       )}
 
-      {/* SIGN UP */}
       {view === "signup" && <SignUp />}
 
-      {/* MOVIES */}
       {view === "movies" && <MovieList userId={session?.user.id || ""} />}
-    </div>
+    </>
   );
 }
 
