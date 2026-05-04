@@ -274,3 +274,16 @@ select {
     grid-template-columns: 1fr;
   }
 }
+/* Form labels */
+.form label {
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: -4px;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+/* Dark mode labels */
+.dark .form label {
+  color: #d1d5db;
+}

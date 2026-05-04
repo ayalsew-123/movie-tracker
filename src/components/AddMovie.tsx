@@ -40,7 +40,6 @@ function AddMovie({ onAdded, userId }: AddMovieProps) {
 
     setMessage("Movie added!");
 
-    // reset form
     setTitle("");
     setDirector("");
     setGenre("");
@@ -57,62 +56,71 @@ function AddMovie({ onAdded, userId }: AddMovieProps) {
       <h3>Add Movie</h3>
 
       <form onSubmit={handleSubmit} className="form">
+        <label>Title</label>
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
+          placeholder="Enter movie title"
           required
         />
 
+        <label>Director</label>
         <input
           value={director}
           onChange={(e) => setDirector(e.target.value)}
-          placeholder="Director"
+          placeholder="Enter director name"
           required
         />
 
+        <label>Genre</label>
         <input
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
-          placeholder="Genre"
+          placeholder="Enter genre"
           required
         />
 
+        <label>Year</label>
         <input
           type="number"
           value={year}
           onChange={(e) =>
             setYear(e.target.value === "" ? "" : Number(e.target.value))
           }
-          placeholder="Year"
+          placeholder="Enter release year"
           required
         />
 
+        <label>Runtime (minutes)</label>
         <input
           type="number"
           value={runtime}
           onChange={(e) =>
             setRuntime(e.target.value === "" ? "" : Number(e.target.value))
           }
-          placeholder="Runtime (minutes)"
+          placeholder="Enter runtime"
           required
         />
 
+        <label>Rating (1–10)</label>
         <input
           type="number"
           step="0.1"
+          min="1"
+          max="10"
           value={rating}
           onChange={(e) =>
             setRating(e.target.value === "" ? "" : Number(e.target.value))
           }
-          placeholder="Rating (1–10)"
+          placeholder="Enter rating"
           required
         />
 
+        <label>Description</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
+          placeholder="Enter movie description"
           required
         />
 
